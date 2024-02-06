@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+* {
+    margin: 0;
+}
+html, body {
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    color: #222;
+    width: 100%;
+}
+.wrapper {
+  width: 75%;
+  margin: 0 auto;
+}
+.flexContainerRow {
+  background-color: #fafafa;
+  border: solid 0.1em #c9c9c9;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 10px;
+  padding: 10px;
+}
+p {
+  text-align: justify;
+  color: rgb(19, 19, 19);
+  text-indent: 23px;
+  padding: 7px;
+} 
+h1 {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 10px;
+  color: #353535;
+}
+#cont h2 {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 800;
+  margin: 10px;
+  color: #333;
+}
+#cont h3 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  margin: 7px 0 7px 0;
+  color: #333;
+}
+h4 {
+  justify-content: space-between;
+  text-align: justify;
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 600;
+  margin: 10px;
+  color: #333;
+}
+#cont h5 {
+  justify-content: space-between;
+  text-align: justify;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 600;
+  margin: 7px;
+  color: rgb(36, 36, 36);
+  z-index: 200;
+}
+.flex-item {
+  width: 33%;
+  text-align: center;
+  font-size: 1em;
+  padding: 1.5em;
+  color: white;
+  opacity: 0.8;
+}
+
+.item {
+  width: 280px;
+  height: 300px;
+  background: #eeeeee;
+  margin: 9px auto;
+  overflow: hidden;
+  padding-bottom: 10px; 
+  border-radius: 7px;
+}
+.frame {
+  width: 100%;
+  height: 170px;
+  overflow: hidden;
+  border-radius: 7px;
+}
+.item img {
+  width: 100%;
+  border-radius: 7px 7px 0 0;
+  transition: transform 500ms ease;
+}
+.item img:hover {
+  transform: scale(1.05);
+  border-radius: 7px 7px 0 0;
+}
+button {
+  background-color:  rgba(233, 200, 200, 0.9);
+  justify-content: center;
+  font-size: 22px;
+  border-radius: 8px;
+  border: 1px solid rgb(182, 182, 182);
+  border-style: outset;
+  font-weight: bold;
+  color: rgb(73, 73, 73);
+  cursor: pointer;
+}
+button:hover {
+  background: orangered;
+}
+button:active {
+  background: rgb(255, 0, 0);
+  color: orangered;
+}
+#font {
+  text-align: justify;
+}
+.rowbar {
+   height: 55px;
+  justify-content: center;
+  background-color:  rgba(233, 200, 200, 0.8);
+  border: 0.5px solid rgba(255, 255, 255, 0.3);
+  width: 100%;
+}
+.rowbut {
+  height: 55px;
+ justify-content: center;
+ border: 0.5px solid rgba(255, 255, 255, 0.3);
+ width: 100%;
+}
+.row {
+  width: 100%;
+  margin: 5px;
+}
+.rowform {
+  width: 100%;
+  padding: 5px;
+  font: 1.1em "Fira Sans", sans-serif;
+  color: #df1818;
+}
+.result {
+  width: 100%;
+  height: fit-content;
+  margin: 0 auto;
+  padding: 7px;
+  border: #b3b3b3 solid 0.5px;
+}
+.centertext {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#child {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fafafa;
+  padding: 7px;
+  overflow: auto;
+}
+.lowerbuttons {
+  width: 90px;
+  height: 100%;
+  z-index: 150; 
+}
+.parentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.playerContainer {
+  position: fixed;
+  bottom: 0;
+  padding: 7px;
+  overflow: auto;
+  width: 35%;
+}
+.figure {
+  border: 2px solid #12b0ff;
+  border-radius: 30px;
+  width: 100%;
+}
+ 
