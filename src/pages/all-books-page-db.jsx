@@ -8,7 +8,7 @@ export const AllBooksPageDB = () => {
  
   useEffect(()=> {
         const fetchBooks = async () => {
-             return await axios.get(`/api/books`)
+             return await axios.get(`https://hopnextgames-api.onrender.com/api/books`)
               .then(res => res.data)
               .then(data => setBooks(data))
           };
