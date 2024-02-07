@@ -23,7 +23,7 @@ export const EditBookPage = () => {
 
   useEffect(()=> {
     const fetchBook = async () => {
-         return await axios.get(`/api/books/${bookId}`)
+         return await axios.get(`https://hopnextgames-api.onrender.com/api/books/${bookId}`)
          .then(res => {
           setExemplar(res.data[0])
           setBookImagePath(res.data[0].bookImage+"")
@@ -74,7 +74,7 @@ formData.append("bookImage", bookImage || imageBl, bookImagePath.split(`${paths.
 formData.append("userId", exemplar.userId);
 formData.append("notes", notes);
 try {
-  const { data } = await axios.put(`/api/books/edit/${bookId}`, formData)
+  const { data } = await axios.put(`https://hopnextgames-api.onrender.com/api/books/edit/${bookId}`, formData)
 
   if (data.title) {
     setErrTitle(data.title.message)

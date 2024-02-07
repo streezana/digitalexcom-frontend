@@ -24,7 +24,7 @@ export const PersonalAccount = () => {
         }, []) 
     useEffect(()=> {
           const fetchBooks = async () => {
-               return await axios.get(`/api/books`)
+               return await axios.get(`https://hopnextgames-api.onrender.com/api/books`)
                 .then(res => res.data)
                 .then(data => setBooks(data))
             };
@@ -37,7 +37,7 @@ export const PersonalAccount = () => {
 const deleteHandler = async (idBook) => {
         console.log('Book deleted - '+idBook)
    try {
-          await axios.delete(`/api/books/${idBook}`)
+          await axios.delete(`https://hopnextgames-api.onrender.com/api/books/${idBook}`)
           return (
             navigate(`${paths.account}/${tokenUserId}`),
             toast('Книга успешно удалена'),

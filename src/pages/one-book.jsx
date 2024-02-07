@@ -41,7 +41,7 @@ export const BookPage = () => {
       }
 useEffect(()=> {
         const fetchBook = async () => {
-             return await axios.get(`/api/books/${bookId}`)
+             return await axios.get(`https://hopnextgames-api.onrender.com/api/books/${bookId}`)
              .then(res => {
                 // setBook(res.data[0])
                 setTitle(res.data[0].title)
@@ -57,7 +57,7 @@ useEffect(()=> {
 
 useEffect(()=> {
   const fetchAudios = async () => {
-       return await axios.get(`/api/audiofiles`)
+       return await axios.get(`https://hopnextgames-api.onrender.com/api/audiofiles`)
        .then(res => {
         setAudioDB(res.data.find(item => item.bookId == bookId))
        })
@@ -81,7 +81,7 @@ useEffect(() => {
 const deleteHandler = () => {
    const deleteAudio = async (audio_id) => {
       try {
-        await axios.delete(`/api/audiofiles/delete/${audio_id}`)
+        await axios.delete(`https://hopnextgames-api.onrender.com/api/audiofiles/delete/${audio_id}`)
         return (
           console.log('Аудио файл успешно удален')
           )
@@ -91,7 +91,7 @@ const deleteHandler = () => {
     }
  const deleteBook = async () => {
   try {
-    await axios.delete(`/api/books/${bookId}`)
+    await axios.delete(`https://hopnextgames-api.onrender.com/api/books/${bookId}`)
     return (
       navigate(`${paths.account}/${tokenUserId}`),
       toast('Книга успешно удалена'),
@@ -123,7 +123,7 @@ const handleSubmitAudio = async (e) => {
   formData.append("audioFile", mp3File, fileName)
   formData.append("bookId", bookId)
   try {
-    const { data } = await axios.post('/api/audiofiles/create', formData)
+    const { data } = await axios.post('https://hopnextgames-api.onrender.com/api/audiofiles/create', formData)
   
    if (data.authorization) {
       console.log(data.authorization.message)

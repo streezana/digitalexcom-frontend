@@ -25,7 +25,7 @@ export const CreateNewUser = () => {
         const email = e.target.elements.email.value;
         const password = e.target.elements.password.value;
         try {
-            const { data } = await axios.post('/api/users/registration', {
+            const { data } = await axios.post('https://hopnextgames-api.onrender.com/api/users/registration', {
                 email,
                 password,
             })

@@ -18,7 +18,7 @@ const handle = () => {
 
 useEffect(()=> {
         const fetchUsers = async () => {
-        await axios.get('/api/users/getme')
+        await axios.get('https://hopnextgames-api.onrender.com/api/users/getme')
         .then((res) => {
             if (res.data.token) {
                 setIsAuth(true)

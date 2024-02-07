@@ -25,7 +25,7 @@ export const LoginUser = () => {
         const email = e.target.elements.email.value;
         const password = e.target.elements.password.value;
         try {
-            const { data } = await axios.post('/api/users/login', {
+            const { data } = await axios.post('https://hopnextgames-api.onrender.com/api/users/login', {
                 email,
                 password,
             })
