@@ -43,16 +43,11 @@ const handleCheckbox = () => {
 
 const handleSubmit = async (e) => {
 e.preventDefault()
-//setNewBlob(new File([bookImage], 'bookImage-' + new Date().getTime() + '.jpg', {type: "image/jpeg", lastModified: Date.now()}))
-//console.log('NEW bookImage name - ' +(new File([bookImage], 'bookImage-' + new Date().getTime() + '.jpg', {type: "image/jpeg", lastModified: Date.now()}).name))
 const formData = new FormData()
 formData.append("title", e.target.elements.title.value.trim())
 formData.append("description", e.target.elements.description.value)
 formData.append("content", e.target.elements.content.value)
-
 formData.append("bookImage", new File([bookImage], 'bookImage-' + new Date().getTime() + '.jpg', {type: "image/jpeg", lastModified: Date.now()}))
-// formData.append("bookImage", bookImage, fileName)
-// formData.append("bookImage", bookImage || imageBl, fileName);
 formData.append("userId", userId)
 formData.append("notes", notes)
 
