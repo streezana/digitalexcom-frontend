@@ -11,11 +11,12 @@ export const CreateBookPage = () => {
   const navigate = useNavigate()
   const [status, setStatus] = useState()
   const [bookImage, setBookImage] = useState(null)
-  const [imageBl, setImageBl] = useState(null)
+  // const [imageBl, setImageBl] = useState(null)
   const [userId, setUserId] = useState()
   const [notes, setNotes] = useState(false)
   const [errTitle, setErrTitle] = useState()
   const [errContent, setErrContent] = useState()
+  const [errBookImage, setErrBookImage] = useState()
 
 useEffect(() => {
 if (window.localStorage.getItem('token')) {
@@ -33,13 +34,11 @@ else {
   }
 }
 }, [status])
-
-useEffect(() => {
-fetch('/static/no_image.jpg')
-.then((res) => res.blob())
-.then((img) => setImageBl(img));
-})
-
+// useEffect(() => {
+// fetch('/static/no_image.jpg')
+// .then((res) => res.blob())
+// .then((img) => setImageBl(img));
+// })
 const handleImageFile = (e) => {
 setBookImage(e.target.files[0]);
 }
@@ -48,13 +47,14 @@ const handleCheckbox = () => {
 }
 
 const handleSubmit = async (e) => {
-e.preventDefault();
-let fileName = 'bookImage-' + new Date().getTime() + ".jpg";
-const formData = new FormData();
-formData.append("title", e.target.elements.title.value.trim());
-formData.append("description", e.target.elements.description.value);
-formData.append("content", e.target.elements.content.value);
-formData.append("bookImage", bookImage || imageBl, fileName);
+e.preventDefault()
+let fileName = 'bookImage-' + new Date().getTime() + ".jpg"
+const formData = new FormData()
+formData.append("title", e.target.elements.title.value.trim())
+formData.append("description", e.target.elements.description.value)
+formData.append("content", e.target.elements.content.value)
+formData.append("bookImage", bookImage, fileName)
+// formData.append("bookImage", bookImage || imageBl, fileName);
 formData.append("userId", userId)
 formData.append("notes", notes)
 
@@ -72,6 +72,10 @@ if (data.content) {
 if (data.bookUnique) {
   setErrTitle(data.bookUnique)
   console.log(data.bookUnique) 
+}
+if (data.bookImage) {
+  setErrBookImage(data.bookImage.message)
+  console.log(data.bookImage.message)
 }
 if (data.success) {
   toast(data.success)
@@ -97,6 +101,10 @@ if (data.success) {
           placeholder="Выберите изображение"
           onChange={handleImageFile}
         />
+        <div className='error'>
+          {errBookImage ? errBookImage : null}
+        </div>
+
         <h4 style={{ marginLeft: 40 }}>Название книги</h4>
         <Input
           name="title"
