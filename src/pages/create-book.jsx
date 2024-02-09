@@ -11,7 +11,6 @@ export const CreateBookPage = () => {
   const navigate = useNavigate()
   const [status, setStatus] = useState()
   const [bookImage, setBookImage] = useState(null)
-  // const [imageBl, setImageBl] = useState(null)
   const [userId, setUserId] = useState()
   const [notes, setNotes] = useState(false)
   const [errTitle, setErrTitle] = useState()
@@ -34,13 +33,9 @@ else {
   }
 }
 }, [status])
-// useEffect(() => {
-// fetch('/static/no_image.jpg')
-// .then((res) => res.blob())
-// .then((img) => setImageBl(img));
-// })
+
 const handleImageFile = (e) => {
-setBookImage(e.target.files[0]);
+setBookImage(e.target.files[0])
 }
 const handleCheckbox = () => {
   notes ? setNotes(false) : setNotes(true)
@@ -48,12 +43,15 @@ const handleCheckbox = () => {
 
 const handleSubmit = async (e) => {
 e.preventDefault()
-let fileName = 'bookImage-' + new Date().getTime() + ".jpg"
+//setNewBlob(new File([bookImage], 'bookImage-' + new Date().getTime() + '.jpg', {type: "image/jpeg", lastModified: Date.now()}))
+//console.log('NEW bookImage name - ' +(new File([bookImage], 'bookImage-' + new Date().getTime() + '.jpg', {type: "image/jpeg", lastModified: Date.now()}).name))
 const formData = new FormData()
 formData.append("title", e.target.elements.title.value.trim())
 formData.append("description", e.target.elements.description.value)
 formData.append("content", e.target.elements.content.value)
-formData.append("bookImage", bookImage, fileName)
+
+formData.append("bookImage", new File([bookImage], 'bookImage-' + new Date().getTime() + '.jpg', {type: "image/jpeg", lastModified: Date.now()}))
+// formData.append("bookImage", bookImage, fileName)
 // formData.append("bookImage", bookImage || imageBl, fileName);
 formData.append("userId", userId)
 formData.append("notes", notes)
