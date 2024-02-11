@@ -5,6 +5,7 @@ import './navbar.css'
 import axios from '../../utils/axios'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+axios.defaults.withCredentials = true
 
 const Navbar = () => {
     const navigate = useNavigate()
