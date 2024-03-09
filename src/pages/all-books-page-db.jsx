@@ -25,13 +25,13 @@ const newBooksArr = books.filter(item => {
                 {newBooksArr && newBooksArr.map((item, index) =>
                     <div className="item" key={index}>
                         <Link to={`${paths.books}/${item._id}`}>
-                            <h3>{item.title.substr(0,25)+'.. '}</h3>
+                        <h3>{item.title.substr(0,25)+'.. '}</h3>
 
                         <div className="frame">
                         <img src={item.bookImage} alt="" />
                         </div>
                         </Link>
-                        <h5>{item.content}</h5>
+                        <h5>{item.content.substr(0,210)+'.. '}</h5>
 
                     </div>
                 )}
