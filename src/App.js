@@ -15,9 +15,10 @@ import { BookPage } from "./pages/one-book"
 import { EditBookPage } from "./pages/edit-book"
 // import { PersonalAccount } from "./pages/account-page"
 import { DevelopmentPage } from "./pages/page-in-development"
-
-const HomePage = lazy(() => import('./pages/home-page'))
-const PersonalAccount = lazy(() => import('./pages/account-page'))
+//const HomePage = lazy(() => import('./pages/home-page'))
+//const PersonalAccount = lazy(() => import('./pages/account-page'))
+const HomePage = React.lazy( async () => (await import('./pages/home-page').default))
+const PersonalAccount = React.lazy( async () => (await import('./pages/account-page').default))
 
 function App() {
   return (
