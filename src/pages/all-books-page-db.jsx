@@ -31,8 +31,7 @@ const newBooksArr = books.filter(item => {
                         <img src={item.bookImage} alt="" />
                         </div>
                         </Link>
-                        <h5>{item.content.substr(0,210)+'.. '}</h5>
-
+                        <h5>{item.content.substr(0,156)+'.. '}</h5> 
                     </div>
                 )}
             </div>
