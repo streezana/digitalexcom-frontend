@@ -6,7 +6,7 @@ import { paths } from "../paths"
 import { toast } from 'react-toastify'
 import {jwtDecode} from 'jwt-decode'
 
-export const PersonalAccount = () => {
+const PersonalAccount = () => {
     const navigate = useNavigate()
     const params = useParams()
     const userId = params.id
@@ -58,10 +58,9 @@ return (
                 <div>
                     <h3 className="logcont">Личный кабинет: <Link className="link" to={`${paths.developmentpage}`}>Посмотреть или изменить данные</Link></h3>
                 </div>
-            </div>
-            <h2 className='title'>{newBooksArr && Object.keys(newBooksArr).length !== 0 ? "Все книги пользователя" : 'У пользователя пока нет книг'}</h2>
-         
              </div>
+            </div>
+
   {newBooksArr && newBooksArr.map((item, index) =>
     <div className="result" key={index}>
        <div>
@@ -99,3 +98,5 @@ return (
 </div>
  )
 }
+
+export default PersonalAccount

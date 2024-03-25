@@ -1,7 +1,6 @@
 import React, { lazy, Suspense } from 'react'
 import './style/redgreenblue.css'
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom"
-// import { HomePage } from "./pages/home-page"
 import { paths } from "./paths"
 import Navbar from "./components/navbar/Navbar"
 import { CreateNewUser } from "./pages/register-user-page"
@@ -13,20 +12,19 @@ import { CreateBookPage } from "./pages/create-book"
 import { AllBooksPageDB } from "./pages/all-books-page-db"
 import { BookPage } from "./pages/one-book"
 import { EditBookPage } from "./pages/edit-book"
-// import { PersonalAccount } from "./pages/account-page"
 import { DevelopmentPage } from "./pages/page-in-development"
-//const HomePage = lazy(() => import('./pages/home-page'))
-//const PersonalAccount = lazy(() => import('./pages/account-page'))
-const HomePage = React.lazy( async () => (await import('./pages/home-page').default))
-const PersonalAccount = React.lazy( async () => (await import('./pages/account-page').default))
+const HomePage = lazy(() => import('./pages/home-page'))
+const PersonalAccount = lazy(() => import('./pages/account-page'))
 
 function App() {
   return (
     <BrowserRouter>
     <div className='wrapper'> 
         <Navbar />
+        <Suspense fallback={<span>Loading...</span>}>
+
         <Routes>
-          <Route path={paths.home} element={<Suspense fallback={<span>Loading...</span>}><HomePage /></Suspense>} />
+          <Route path={paths.home} element={<HomePage />} />
           <Route path={paths.register} element={<CreateNewUser />} />
           <Route path={paths.login} element={<LoginUser />} />
           <Route path={paths.game} element={<GamePage />} />
@@ -35,10 +33,10 @@ function App() {
 
           <Route path={paths.bookcreate} element={<CreateBookPage />} />
           <Route path={`${paths.edit}/:id`} element={<EditBookPage />} />
-          <Route path={`${paths.account}/:id`} element={<Suspense fallback={<span>Loading...</span>}><PersonalAccount /></Suspense>} />
+          <Route path={`${paths.account}/:id`} element={<PersonalAccount />} />
           <Route path={paths.developmentpage} element={<DevelopmentPage />} />
-          
         </Routes>
+        </Suspense>
         <Outlet />
         </div>
         <ToastContainer position='bottom-right' />
