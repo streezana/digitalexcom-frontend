@@ -53,11 +53,11 @@ const logoutHandler = () => {
         <div className="flexContainerRow">
         <div className="navbar">
             <div className="case">
-                <div className="navbar__header"><NavLink to={paths.home} className="link">HOPNEXTGAMES</NavLink> </div>
+                <div className="navbar_logo"><NavLink to={paths.home} className="link">HOPNEXTGAMES</NavLink> </div>
 
                 {/* <div className="navbar__login"><button type="button" className="navbar_button" onClick={() => navigate(paths.bookcreate)}>Добавить книгу</button></div> */}
 
-                <div className="navbar__login"><button id="th" type="button" onClick={() => !invisible ? setInvisible(true) : setInvisible(false)} className="navbar_button"><i className="fa-regular fa-user"></i></button></div>
+                <div className="navbar_but"><button id="th" type="button" onClick={() => !invisible ? setInvisible(true) : setInvisible(false)} className="navbar_button"><i className="fa-regular fa-user"></i></button></div>
 
                 <Outlet />
             </div>
