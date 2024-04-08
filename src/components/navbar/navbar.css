@@ -10,9 +10,14 @@
   padding-top: 9px;
 }
 .navbar__header {
+  position: absolute;
+  top: 25%;
   margin-left: 10px;
-  font-size: 24px;
+  font-size: 23px;
   font-weight: 700;
+  font-style: italic;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  /* background-image: url("../img/logo.jpg"); */
 }
 .navbar__login {
   margin-left: auto;

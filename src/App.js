@@ -13,16 +13,17 @@ import { AllBooksPageDB } from "./pages/all-books-page-db"
 import { BookPage } from "./pages/one-book"
 import { EditBookPage } from "./pages/edit-book"
 import { DevelopmentPage } from "./pages/page-in-development"
-const HomePage = lazy(() => import('./pages/home-page'))
-const PersonalAccount = lazy(() => import('./pages/account-page'))
+import { HomePage } from './pages/home-page'
+import { PersonalAccount } from './pages/account-page'
+// const HomePage = lazy(() => import('./pages/home-page'))
+// const PersonalAccount = lazy(() => import('./pages/account-page'))
 
 function App() {
   return (
     <BrowserRouter>
     <div className='wrapper'> 
         <Navbar />
-        <Suspense fallback={<span>Loading...</span>}>
-
+        {/* <Suspense fallback={<div className="title"><h3>Loading...</h3></div>}> */}
         <Routes>
           <Route path={paths.home} element={<HomePage />} />
           <Route path={paths.register} element={<CreateNewUser />} />
@@ -36,7 +37,7 @@ function App() {
           <Route path={`${paths.account}/:id`} element={<PersonalAccount />} />
           <Route path={paths.developmentpage} element={<DevelopmentPage />} />
         </Routes>
-        </Suspense>
+        {/* </Suspense> */}
         <Outlet />
         </div>
         <ToastContainer position='bottom-right' />

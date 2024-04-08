@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, lazy, Suspense } from "react"
 import { useNavigate, Link, useParams } from "react-router-dom"
 import axios from "axios"
 import "../style/loginregpage.css"
 import { paths } from "../paths"
 import { toast } from 'react-toastify'
 import {jwtDecode} from 'jwt-decode'
+// const BookItemAccount = lazy(() => import('./account-book-Item-page'))
 
-const PersonalAccount = () => {
+export const PersonalAccount = () => {
     const navigate = useNavigate()
     const params = useParams()
     const userId = params.id
@@ -98,5 +99,4 @@ return (
 </div>
  )
 }
-
-export default PersonalAccount
+// export default PersonalAccount

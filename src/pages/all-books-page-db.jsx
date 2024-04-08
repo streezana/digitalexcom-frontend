@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, lazy, Suspense } from "react"
 import { Link } from "react-router-dom"
 import { paths } from "../paths"
 import axios from "axios"
+// import {BookItem} from "./book-Item"
+const BookItem = lazy(() => import('./book-Item'))
 
 export const AllBooksPageDB = () => {
   const [books, setBooks] = useState([])
@@ -18,25 +20,18 @@ const newBooksArr = books.filter(item => {
         if (!item.notes) return item;
     });
  return (
-        <div id="app">
-           <div className="create">
-            <div id="cont" className="flexContainerRow">
+     <div id="app">
+         <div className="create">
+             <div id="cont" className="flexContainerRow">
+                
+                 <Suspense fallback={<div className="title"><h3>Loading...</h3></div>}>
+                     {/* <div className="row"> */}
+                     {newBooksArr && newBooksArr.map((item) => <BookItem key={item._id} {...item} />)}
+                     {/* </div> */}
+                 </Suspense>
 
-                {newBooksArr && newBooksArr.map((item, index) =>
-                    <div className="item" key={index}>
-                        <Link to={`${paths.books}/${item._id}`}>
-                        <h3>{item.title.substr(0,25)+'.. '}</h3>
-
-                        <div className="frame">
-                        <img src={item.bookImage} alt="" />
-                        </div>
-                        </Link>
-                        <h5>{item.content.substr(0,156)+'.. '}</h5> 
-                    </div>
-                )}
-            </div>
-            </div>
-
-        </div>
+             </div>
+         </div>
+     </div>
     )
 }

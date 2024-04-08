@@ -12,7 +12,7 @@ export const GamePage = () => {
                 <div>
                     <h3 className="logcont"><a href={GameFruits} download="ComboFruits" style={{ marginRight: '8px' }}>Скачать</a>для  Android</h3>
 
-                    <button type="button" className="but-control"><a href={GameFruits} download="ComboFruits" style={{ textDecoration: 'none', color: 'white' }}>Download</a></button>
+                    {/* <button type="button" className="but-control"><a href={GameFruits} download="ComboFruits" style={{ textDecoration: 'none', color: 'white' }}>Download</a></button> */}
                 </div>
 
             </div>

@@ -53,9 +53,9 @@ const logoutHandler = () => {
         <div className="flexContainerRow">
         <div className="navbar">
             <div className="case">
-                <div className="navbar__header"><NavLink to={paths.home} className="link"><h3>HOPNEXTGAMES</h3></NavLink> </div>
+                <div className="navbar__header"><NavLink to={paths.home} className="link">HOPNEXTGAMES</NavLink> </div>
 
-                <div className="navbar__login"><button type="button" className="navbar_button" onClick={() => navigate(paths.bookcreate)}>Добавить книгу</button></div>
+                {/* <div className="navbar__login"><button type="button" className="navbar_button" onClick={() => navigate(paths.bookcreate)}>Добавить книгу</button></div> */}
 
                 <div className="navbar__login"><button id="th" type="button" onClick={() => !invisible ? setInvisible(true) : setInvisible(false)} className="navbar_button"><i className="fa-regular fa-user"></i></button></div>
 
@@ -67,6 +67,13 @@ const logoutHandler = () => {
                            <div className="navbar_row">
                                 <Link to={paths.game} className="link"><h6>GamePage</h6></Link>
                             </div>
+
+                            {/* <div className="navbar__login"><button type="button" className="navbar_button" onClick={() => navigate(paths.bookcreate)}>Добавить книгу</button></div> */}
+                            {isAuth ? (
+                            <div className="navbar_row">
+                                <Link to={`${paths.register}`} className="link"><h6>Добавить книгу</h6></Link>
+                            </div>
+                             ) : ( null )}
 
                             {!isAuth ? (
                             <div className="navbar_row">
