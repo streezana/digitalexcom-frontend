@@ -23,12 +23,12 @@ const newBooksArr = books.filter(item => {
      <div id="app">
          <div className="create">
              <div id="cont" className="flexContainerRow">
-                
-                 <Suspense fallback={<div className="title"><h3>Loading...</h3></div>}>
-                     {/* <div className="row"> */}
-                     {newBooksArr && newBooksArr.map((item) => <BookItem key={item._id} {...item} />)}
-                     {/* </div> */}
-                 </Suspense>
+
+                 {newBooksArr && newBooksArr.map((item) =>
+                     <Suspense fallback={<div className="title"><h3>Loading...</h3></div>}>
+                         <BookItem key={item._id} {...item} />
+                     </Suspense>
+                 )}
 
              </div>
          </div>
