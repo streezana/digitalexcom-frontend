@@ -55,10 +55,9 @@ const logoutHandler = () => {
             <div className="case">
                 <div className="navbar_logo"><NavLink to={paths.home} className="link">HOPNEXTGAMES</NavLink> </div>
 
-                {/* <div className="navbar__login"><button type="button" className="navbar_button" onClick={() => navigate(paths.bookcreate)}>Добавить книгу</button></div> */}
-
-                <div className="navbar_but"><button id="th" type="button" onClick={() => !invisible ? setInvisible(true) : setInvisible(false)} className="navbar_button"><i className="fa-regular fa-user"></i></button></div>
-
+                <div className="navbar_but"><button id="th" type="button" onClick={() => !invisible ? setInvisible(true) : setInvisible(false)} className="navbar_button"><i className="fa-regular fa-user"></i></button></div> 
+          {/* <button id="th" type="button" onClick={() => !invisible ? setInvisible(true) : setInvisible(false)} className="navbar_button"><i className="fa-regular fa-user"></i></button> */}
+          {/* <div className="navbar_but"><button id="th" type="button" onClick={() => !invisible ? setInvisible(true) : setInvisible(false)}><i className="fa-regular fa-user"></i></button></div> */}
                 <Outlet />
             </div>
 
@@ -71,7 +70,7 @@ const logoutHandler = () => {
                             {/* <div className="navbar__login"><button type="button" className="navbar_button" onClick={() => navigate(paths.bookcreate)}>Добавить книгу</button></div> */}
                             {isAuth ? (
                             <div className="navbar_row">
-                                <Link to={`${paths.register}`} className="link"><h6>Добавить книгу</h6></Link>
+                                <Link to={`${paths.bookcreate}`} className="link"><h6>Добавить книгу</h6></Link>
                             </div>
                              ) : ( null )}
 

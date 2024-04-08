@@ -5,7 +5,7 @@ import "../style/loginregpage.css"
 import { paths } from "../paths"
 import { toast } from 'react-toastify'
 import {jwtDecode} from 'jwt-decode'
-// const BookItemAccount = lazy(() => import('./account-book-Item-page'))
+const BooksItemAccount = lazy(() => import('./account-book-Item-page'))
 
 export const PersonalAccount = () => {
     const navigate = useNavigate()
@@ -61,6 +61,15 @@ return (
                 </div>
              </div>
             </div>
+            {/* {newBooksArr && newBooksArr.map((item, index) =>
+
+            )} */}
+
+       {newBooksArr && newBooksArr.map((item) =>
+          <Suspense fallback={<div className="result"><div><h3>Loading...</h3></div></div>}>
+              <BooksItemAccount key={item._id} {...item} />
+          </Suspense>
+        )}
 
   {newBooksArr && newBooksArr.map((item, index) =>
     <div className="result" key={index}>

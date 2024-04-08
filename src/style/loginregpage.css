@@ -11,7 +11,7 @@
     backdrop-filter: blur(40px);
     border-radius: 9px;
     padding: 30px;
-    width: 60%;
+    width: 95%;
     text-align: center;
     align-items: center;
 }
@@ -48,6 +48,7 @@
     margin: 0px auto;
     white-space: nowrap;
     overflow: hidden;
+    /* z-index: 1005; */
   }
 .left {
     padding: 5px 0;
@@ -67,8 +68,9 @@
   }
 
 .title {
-    font-size: 30px;
-    margin: 5px 0 30px 0;
+    font-size: 22px;
+    margin: 5px 0;
+    /* margin: 5px 0 30px 0; */
 }
 .buttonCont {
     padding: 10px 16px;
@@ -80,6 +82,7 @@
     color: rgb(73, 73, 73);
     cursor: pointer;
     box-shadow: 1px 1px 1px gray;
+    width: fit-content;
 }
 .logcont {
     margin: 17px;

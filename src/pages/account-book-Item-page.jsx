@@ -1,30 +1,67 @@
-import React from "react";
-import { Link } from "react-router-dom"
+import React from "react"
 import { paths } from "../paths"
+import { useNavigate, Link, useParams } from "react-router-dom"
+import axios from "axios"
+import "../style/loginregpage.css"
+import { toast } from 'react-toastify'
+//const navigate = useNavigate()
 
-const BookItemAccount = ({
+const deleteHandler = async (idBook) => {
+  console.log('Book deleted - '+idBook)
+try {
+    await axios.delete(`https://hopnextgames-api.onrender.com/api/books/${idBook}`)
+    return (
+/*       navigate(`${paths.account}/${tokenUserId}`), */
+      toast('Книга успешно удалена'),
+      console.log('Книга успешно удалена')
+      )
+  } catch(error){
+      console.log(error);
+  }
+}
+
+const BooksItemAccount = ({
   _id = "",
   title = "",
   description = "",
   content = "",
-  bookImage = "",
+  notes = "",
 }) => {
   return (
+    // <div className="result">
+    //    <div>
+<>
+          <div className="rowbut">
+            <Link to={`${paths.books}/${_id}`}>
+              <h3>{title.substr(0, 100) + '.. '}</h3>
+            </Link>
+          </div>
+          <div className="rowbar">
+            {/* <button type="button" className="lowerbuttons" onClick={() => navigate(`${paths.edit}/${_id}`)} style={{ width: 'auto' }}><h5>Редактировать книгу</h5></button> */}
+            <Link to={`${paths.edit}/${_id}`}>
+            <button type="button" className="lowerbuttons" style={{ width: 'auto' }}><h5>Редактировать книгу</h5></button>
+            </Link>
 
-    <div className="item">
-      <Link to={`${paths.books}/${_id}`}>
-        {/* <h3>{item.title.substr(0, 25) + '.. '}</h3> */}
-        <h3>{title.substr(0, 25) + '.. '}</h3>
+            <button type="button" className="lowerbuttons" onClick={() => deleteHandler(_id)} style={{ width: 'auto', float: 'right' }}><h5>Удалить книгу</h5></button>
+          </div>
+      
+     <h5>{description.substr(0,220)+'.. '}</h5>
+         <h4>{content.substr(0,250)+'.. '}</h4>
 
-        <div className="frame">
-          <img src={bookImage} alt="" />
-        </div>
-      </Link>
-      <h5>{content.substr(0, 156) + '.. '}</h5>
-    </div>
+<div className="row">
+ <div className="inputfields">
+  <div className="buttonsleft">
+  <input id="checkbox" type="checkbox" name="scales" checked={notes ? true : false} readOnly />
+  </div>
+<h6 style={{ float: 'left' }}>{notes ? "Черновик" : 'Книга опубликована на главной странице'}</h6>
+</div>
+</div>
+</>
+    //  </div>
+    // </div>
   )
 }
-export default BookItemAccount
+export default BooksItemAccount
 
 // export const BookItem = ({
 //   _id = "",

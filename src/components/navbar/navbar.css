@@ -7,26 +7,32 @@
   border: 0.5px solid rgba(255, 255, 255, 0.3);
   width: 100%;
   position: relative;
-  padding-top: 9px;
+  /* padding-top: 9px; */
 }
 .navbar_logo {
   position: absolute;
-  top: 25%;
+  top: 18%; 
   margin-left: 10px;
   font-size: 23px;
   font-weight: 700;
   font-style: italic;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  /* z-index: 10; нельзя!!!*/
   /* background-image: url("../img/logo.jpg"); */
 }
 .navbar_but {
-  background-color:  rgba(233, 200, 200, 0.8); 
-  margin-left: auto;
-  margin-right: 5px;
-  z-index: 1001;
+  position: absolute;
+  right: 0;
+  background-color:  rgba(170, 120, 120, 0.8); 
+  /* margin: 1px 5px 15px 0; */
+  /* z-index: 15;  нельзя!!!*/
+  /* z-index: 1001; */
   /* display: table-cell; */
-  /* display: inline-block;
-  vertical-align:middle; */
+  /* display: inline-block; */
+  /* vertical-align:middle;  */
+  /* margin-left: auto;
+  margin-right: 5px; */
+
 }
 .case {
   width: 100%;
